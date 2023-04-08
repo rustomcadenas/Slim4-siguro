@@ -25,11 +25,11 @@ class DB{
         try { 
             $statement->execute($params); 
             if($exploded == 'select' || $exploded == 'Select' || $exploded == 'SELECT'){
-                $data = $statement->fetchAll();
+                $data = $statement->fetchAll(PDO::FETCH_ASSOC);
                 return [
                     'status' => '1',
                     'count'  => count($data),
-                    'data'    => $data                 
+                    'result'    => $data                 
                 ];
             }
             return [
