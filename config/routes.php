@@ -1,12 +1,11 @@
 <?php
 
-use Slim\App; 
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;  
+use Slim\App;  
+use App\Middleware\AuthMiddleware;
 
 return function(App $app){
  
-    $app->get('/', \App\Action\HomeAction::class); 
+    $app->get('/', \App\Action\HomeAction::class)->add(AuthMiddleware::class); 
     $app->get('/api/login', '\App\Controller\UsersController:LoginAPI'); 
 
     $app->get('/api/users', '\App\Controller\UsersController:getUsers');

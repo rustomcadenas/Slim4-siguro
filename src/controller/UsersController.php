@@ -25,10 +25,7 @@ class UsersController{
         $response->getBody()->write(json_encode($result));
         return $response;         
     }
-
-    // public function updateUser(Request $request, Response $response){
-        
-    // }
+ 
     public function deleteUser(Request $request, Response $response){
         $data = $request->getParsedBody();
 
